@@ -10,15 +10,17 @@ const subcategorySchema = new Schema(
     slug: {
       type: String,
     },
-    category: {
+    category: [{
       type: Schema.Types.ObjectId,
       ref: "Category",
       required: true,
-    },
+    }],
   },
   { timestamps: true, autoIndex: true, minimize: true }
 );
 
 const Subcategory = mongoose.model("Subcategory", subcategorySchema, "subcategories");
+
+//slug oluşturucu olacak
 
 module.exports = Subcategory;

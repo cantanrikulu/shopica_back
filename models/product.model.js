@@ -10,13 +10,14 @@ const productSchema = new Schema(
     images: {
       type: String,
     },
-    category: { type: Schema.Types.ObjectId, ref: "Category" },
-    subcategory: { type: Schema.Types.ObjectId, ref: "Subcategory" },
+    slug: { type: String },
+    category: { type: Schema.Types.ObjectId, ref: "Category" }, //obje olarak alınacak(name,slugi,image)
+    subcategory: { type: Schema.Types.ObjectId, ref: "Subcategory" }, //obje olarak alınacak
     isPopular: { type: Boolean, default: false },
   },
   { timestamps: true, autoIndex: true, minimize: true }
 );
 
 const Product = mongoose.model("Product", productSchema, "products");
-
+ //slug oluşturucu 
 module.exports = Product;

@@ -12,9 +12,17 @@ const categorySchema = new Schema(
       type: String,
       unique: true,
     },
+    image: { type: String },
+    subCategories: [
+      {
+        name: { type: String },
+        subId: { type: Schema.Types.ObjectId, ref: "Subcategory" },
+      },
+    ],
   },
   { timestamps: true, autoIndex: true, minimize: true }
 );
+// slug oluşturucu eklenecek
 
 const Category = mongoose.model("Category", categorySchema, "categories");
 

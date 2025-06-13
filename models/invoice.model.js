@@ -7,13 +7,13 @@ const invoiceSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "User",
       required: true,
-    },
+    },//user obje olarak gelecek
     items: [
       {
         product: {
           type: Schema.Types.ObjectId,
           ref: "Product",
-          required: true,
+          required: true,//obje olarak gelecek
         },
         quantity: {
           type: Number,
