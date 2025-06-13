@@ -30,36 +30,24 @@ const userSchema = new Schema(
     },
     gender: {
       type: String,
-      enum: ["kadın", "erkek", "belirtmek istemiyorum"],
+      enum: ["kadın", "erkek"],
       required: true,
     },
-    zodiacSign: {
-      type: Schema.Types.String,
+    address: {
+      country: String,
+      city: String,
+      district: String,
+      neighborhood: String,
+      street: String,
+      apartment: String,
+      floor: String,
+      doorNumber: String,
+      zipCode: String,
     },
-    blogs: [
+    comments: [
       {
-        blogId: {
-          type: Schema.Types.ObjectId,
-          ref: "Blogs",
-        },
-      },
-    ],
-    likedBlogs: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Blogs",
-      },
-    ],
-    likedZodiacs: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Zodiac",
-      },
-    ],
-    likedRelationships: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Relationship",
+        type: Schema.Types.ObjectId,
+        ref: "Comment",
       },
     ],
   },
